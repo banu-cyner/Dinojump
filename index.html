@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cyber Runner 2D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game-wrapper">
+    <!-- Screen 1: Menu Utama & Form -->
+    <div id="menu-screen" class="screen">
+      <h1 class="title">CYBER <span>RUNNER</span></h1>
+      <p class="subtitle">Lompati rintangan dan capai skor tertinggi!</p>
+
+      <form id="start-form">
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Masukkan username" required autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="wa">Nomor WhatsApp</label>
+          <input type="tel" id="wa" placeholder="08xxxxxxxxxx" pattern="[0-9]{9,15}" required>
+        </div>
+        <button type="submit" class="btn btn-start">🎮 Mulai Main</button>
+      </form>
+
+      <button id="btn-menu-leaderboard" class="btn btn-secondary">🏆 Lihat Leaderboard</button>
+    </div>
+
+    <!-- Screen 2: Game Play -->
+    <div id="game-screen" class="screen hidden">
+      <div class="hud">
+        <div class="hud-box">SKOR: <span id="current-score">0</span></div>
+        <div class="hud-box">Tinggi: <span id="high-score">0</span></div>
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="gameCanvas" width="360" height="300"></canvas>
+      </div>
+
+      <div class="controls-hint">
+        <p class="desktop-hint">Tekan <strong>[ SPASI ]</strong> atau <strong>[ PANAH ATAS ]</strong> untuk Melompat</p>
+        <button id="btn-jump" class="jump-button">LOMPAT!</button>
+      </div>
+    </div>
+
+    <!-- Screen 3: Game Over -->
+    <div id="over-screen" class="screen hidden">
+      <h2 class="gameover-title">GAME OVER</h2>
+      <div class="score-card">
+        <p>Skor Kamu</p>
+        <span id="final-score">0</span>
+      </div>
+      <div class="action-buttons">
+        <button id="btn-restart" class="btn btn-start">🔄 Main Lagi</button>
+        <button id="btn-over-leaderboard" class="btn btn-secondary">🏆 Leaderboard</button>
+      </div>
+    </div>
+
+    <!-- Screen 4: Leaderboard Menu -->
+    <div id="leaderboard-screen" class="screen hidden">
+      <h2>🏆 TOP 10 PLAYER</h2>
+      <div class="leaderboard-box">
+        <ol id="leaderboard-list">
+          <li class="loading">Memuat leaderboard...</li>
+        </ol>
+      </div>
+      <button id="btn-back-menu" class="btn btn-secondary">⬅ Kembali ke Menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
